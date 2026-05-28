@@ -1,4 +1,4 @@
-# Security Monitoring Lab — Terraform Infrastructure
+# Security Monitoring Lab - Terraform Infrastructure
 
 AWS infrastructure for a cloud-based security monitoring lab. Deploys a full log collection
 and SIEM pipeline using Windows Server, Linux Collector, PostgreSQL, and Splunk.
