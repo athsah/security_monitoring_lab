@@ -37,7 +37,7 @@ Your IP (SSH/RDP)
 
 ```bash
 # 1. Clone and enter the directory
-git clone <your-repo>
+git clone https://github.com/athsah/security_monitoring_lab.git
 cd security-monitoring-lab
 
 # 2. Set your variables
@@ -58,12 +58,12 @@ After apply, Terraform outputs the IPs for every instance.
 
 ## Cost Estimate (us-east-1)
 
-| Instance         | Type       | ~Monthly Cost |
-|------------------|------------|---------------|
-| Windows Server   | t3.medium  | ~$30          |
-| Linux Collector  | t2.micro   | ~$0 (free tier)|
-| Splunk Server    | t3.medium  | ~$30          |
-| SQL Server       | t2.micro   | ~$0 (free tier)|
+| Instance         | Type       | 
+|------------------|------------|
+| Windows Server   | t3.small   |
+| Linux Collector  | t3.micro   | 
+| Splunk Server    | t3.small   |
+| SQL Server       | t3.micro   | 
 
 > **Tip:** Run `terraform destroy` when not actively working to avoid charges.
 

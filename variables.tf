@@ -1,40 +1,45 @@
-variable "aws_region" {
-  description = "AWS region to deploy into"
-  type        = string
-  default     = "us-west-1"
-}
-
-variable "project_name" {
-  description = "Short name prefix for all resources"
-  type        = string
-  default     = "seclab"
-}
-
-variable "environment" {
-  description = "Deployment environment"
-  type        = string
-  default     = "dev"
-}
-
-variable "vpc_cidr" {
-  description = "CIDR block for the VPC"
-  type        = string
-  default     = "10.0.0.0/16"
-}
-
-variable "public_subnet_cidr" {
-  description = "CIDR block for the public subnet"
-  type        = string
-  default     = "10.0.1.0/24"
-}
+variable "aws_region"         { type = string; default = "us-west-1" }
+variable "project_name"       { type = string; default = "seclab" }
+variable "environment"        { type = string; default = "dev" }
+variable "vpc_cidr"           { type = string; default = "10.0.0.0/16" }
+variable "public_subnet_cidr" { type = string; default = "10.0.1.0/24" }
 
 variable "allowed_cidr" {
-  description = "IP in CIDR format (e.g. 1.2.3.4/32) — restricts RDP/SSH/Splunk access"
+  description = "Your home IP in CIDR format (e.g. 1.2.3.4/32)"
   type        = string
-  # Set this in terraform.tfvars — do NOT leave as 0.0.0.0/0 in production
 }
 
 variable "key_name" {
-  description = "Name of an existing AWS EC2 key pair for SSH/RDP access"
+  description = "EC2 key pair name for SSH/RDP access"
   type        = string
+}
+
+variable "splunk_password" {
+  description = "Splunk admin password — min 8 chars, must contain letter + number"
+  type        = string
+  sensitive   = true
+}
+
+variable "db_password" {
+  description = "PostgreSQL seclab_user password"
+  type        = string
+  sensitive   = true
+}
+
+variable "splunk_download_url" {
+  description = "Splunk Enterprise .deb download URL"
+  type        = string
+  default     = "https://download.splunk.com/products/splunk/releases/9.2.1/linux/splunk-9.2.1-78803f08aabb-linux-2.6-amd64.deb"
+}
+
+variable "splunk_uf_linux_url" {
+  description = "Splunk UF .deb download URL (Linux)"
+  type        = string
+  default     = "https://download.splunk.com/products/universalforwarder/releases/9.2.1/linux/splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb"
+}
+
+variable "splunk_uf_windows_url" {
+  description = "Splunk UF .msi download URL (Windows)"
+  type        = string
+  default     = "https://download.splunk.com/products/universalforwarder/releases/9.2.1/windows/splunkforwarder-9.2.1-78803f08aabb-x64-release.msi"
 }
