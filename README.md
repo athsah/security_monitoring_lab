@@ -56,8 +56,6 @@ terraform apply
 
 After apply, Terraform outputs the IPs for every instance.
 
-## Cost Estimate (us-east-1)
-
 | Instance         | Type       | 
 |------------------|------------|
 | Windows Server   | t3.small   |
